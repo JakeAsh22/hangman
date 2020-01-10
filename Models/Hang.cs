@@ -4,17 +4,17 @@ namespace Hangman.Models
 {
     public class Hang
     {
-        public string Word { get; }
-        private string[] words = new string [5]{"flannel", "phone", "water", "sanitizer", "plant", "gang"};
-        public char[] hidddenWord;
+        private static string Word;
+        public static string[] words = {"flannel", "phone", "water", "sanitizer", "plant", "gang"};
+        public static char[] hiddenWord;
         
 
-        public Hang(char guess)
+        public Hang()
         {
-            Letter = guess;
+            RanWord();
         }
 
-        public void RanWord()
+        public static void RanWord()
         {
             Random random = new Random();
             int picker = random.Next(0,6);
@@ -22,11 +22,11 @@ namespace Hangman.Models
             hiddenWord = new char [Word.Length-1];
             for (int i =0; i<Word.Length-1;i++)
             {
-                Word[i] = '_';
+                hiddenWord[i] = '_';
             }
         }
 
-        public void Guess(char guess)
+        public static void Guess(char guess)
         {
             for (int i = 0; i< Word.Length-1;i++)
             {

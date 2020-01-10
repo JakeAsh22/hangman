@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hangman!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h1>Enter a letter to guess!</h1>
+    <form action="/new" method="post">
+     <label for="guessedLetter">Your guess</label>
+     <input id="guessedLetter" name="guessedLetter" type="text">
+
+     <button type="submit">Guess!</button>
+      <h2>
+     @foreach(char letters in Model)
+     {
+        @letters
+     }
+
+     </h2>
+     
+    </form>
+  </body>
+</html>
