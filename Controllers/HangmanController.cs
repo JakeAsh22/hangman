@@ -10,6 +10,7 @@ namespace Hangman.Controllers
         [HttpGet("/new")]
       public ActionResult New()
       {
+        
         return View("New", Hang.hiddenWord);
       }
 
@@ -17,6 +18,7 @@ namespace Hangman.Controllers
       public ActionResult Create(string guessedLetter)
       {
           char letter = Convert.ToChar(guessedLetter);
+          Hang.Guess(letter);
           return RedirectToAction("New", Hang.hiddenWord);
       }
 
